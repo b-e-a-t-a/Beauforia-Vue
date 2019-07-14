@@ -1,0 +1,21 @@
+html
+  font-size: 12px
+
+*
+	box-sizing: border-box
+
+body
+  margin: 0
+  font-family: 'Open Sans', sans-serif
+
+.container
+  width: 100%
+  max-width: 1200px
+  margin: 0 auto
+
+.row::before, .row::after
+  content: ""
+  display: table
+
+.row::after
+  clear: both
