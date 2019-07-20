@@ -1,5 +1,40 @@
-h3
-  margin: 40px 0 0
+.About
+  margin-bottom: 5vh
+  &__carouselSlide
+    text-align: center
+    img
+      height: calc(100vh - 110px - 10vh)
+      object-fit: cover
+      width: 100%
+      display: block
+    .poster
+      object-position: 100% 65%
+
+  &__description
+    padding-top: 5vh
+    .container
+      .my-about-text
+        &::after
+          content: ''
+          display: block
+          border: 1px solid #58c5c2
+          width: 200px
+          margin: 30px auto
+      img
+        width: 100%
+        height: auto
+      .about-us-row
+        display: flex
+        align-items: center
+        .photo
+          width: 100%
+        .text-column
+          width: 100%
+          margin-right: 5%
+          :last-child
+            margin-bottom: 0
+          p
+            text-align: justify
 ul
   list-style-type: none
   padding: 0
