@@ -155,11 +155,20 @@
       cursor: not-allowed
     &:focus
       border-color: darken(rgb(88, 197, 194), 10%)
+      background: lighten(#dfe6e9, 2%)
       color: darken(rgb(88, 197, 194), 10%)
 
   &__send
     margin: 2em auto
 
+  &__submitted
+    color: #1dd1a1
+
+  &__error
+    color: red
+    ul
+      list-style-type: none
+      padding: 0
 
 
 

@@ -4,6 +4,7 @@
     <input
       v-model="contact.name"
       name="name"
+      type="text"
       placeholder="Podaj imię"
       required
     />
@@ -11,6 +12,7 @@
     <input
       v-model="contact.surname"
       name="surname"
+      type="text"
       placeholder="Podaj nazwisko"
       required
     />
@@ -18,6 +20,7 @@
     <input
       v-model="contact.email"
       name="mail"
+      type="email"
       placeholder="Twój adres e-mail"
       required
     />
@@ -65,11 +68,22 @@
     >
     </textarea>
 
-    <button class="btn-colored ContactForm__send">
+    <button
+      class="btn-colored ContactForm__send"
+      :disabled="!isFormFilled"
+    >
       Wyślij
     </button>
 
-
+    <div v-if="submitStatus === 'submitted'" class="ContactForm__submitted">
+      <p>Dziękujemy! <br/> Wiadomość została wysłana
+      </p>
+    </div>
+    <div v-if="errors.length" class="ContactForm__error">
+      <ul>
+        <li v-for="(error, idx) in errors" :key="idx">{{error}}</li>
+      </ul>
+    </div>
   </form>
 </template>
 
@@ -82,22 +96,61 @@ export default {
   components: { Multiselect, Datepicker },
   data() {
     return {
+      errors: [],
       reasons: ["Proszę o kontakt", "Konsultacja", "Rezerwacja wizyty", "Odwołanie wizyty"],
+      submitStatus: null,
       contact: {
-        name: '',
-        surname: '',
-        email: '',
-        phone: '',
-        birthDate: '',
-        reason: '',
-        message: ''
+        name: null,
+        surname: null,
+        email: null,
+        phone: null,
+        birthDate: null,
+        reason: null,
+        message: null
       }
     }
   },
   methods: {
     submitForm() {
-      const dto = this.contact;
-      console.log(dto);
+      this.checkForm();
+      if (this.errors.length) {
+        this.submitStatus = "error";
+      } else {
+        const dto = this.contact;
+        console.log(dto);
+        this.submitStatus = "submitted";
+        this.contact = {};
+      }
+    },
+    isEmailValid(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    isPhoneValid(phone) {
+      var pn = /^\d{9,10}$/;
+      return pn.test(phone);
+    },
+    checkForm() {
+      this.errors = [];
+      if(!this.isEmailValid(this.contact.email)) {
+        this.errors.push("Wprowadzony e-mail jest niepoprawny.");
+      }
+      if(!this.isPhoneValid(this.contact.phone)) {
+        this.errors.push("Wprowadzony numer telefonu jest niepoprawny.");
+      }
+      if(!this.errors.length) return true;
+    }
+  },
+  computed: {
+    isFormFilled() {
+      return Boolean(
+        this.contact.name &&
+        this.contact.surname &&
+        this.contact.email &&
+        this.contact.phone &&
+        this.contact.birthDate &&
+        this.contact.reason
+      )
     }
   }
 }
