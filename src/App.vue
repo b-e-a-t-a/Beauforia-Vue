@@ -2,6 +2,9 @@
   <div id="app">
     <navbar />
     <router-view />
+    <footer>
+		  <button class="back-to-top" @click="topFunction" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+	  </footer>
   </div>
 </template>
 
@@ -11,7 +14,13 @@ import Navbar from '@/components/Navbar/Navbar';
 
 export default {
   name: 'App',
-  components: {Navbar}
+  components: { Navbar },
+  methods: {
+    topFunction() {
+      window.document.body.scrollTop = 0;
+      window.document.documentElement.scrollTop = 0;
+    }
+  }
 }
 
 </script>
@@ -76,4 +85,18 @@ section > .container
 	min-height: 1px
 	float: left
 
+.back-to-top
+  position: fixed
+  bottom: 20px
+  right: 20px
+  z-index: 99
+  font-size: 1.5em
+  border: none
+  outline: none
+  cursor: pointer
+  padding: 5px 10px
+  background: #dfe6e9
+  &:hover
+    background-color: rgb(88, 197, 194)
+    color: #fff
 </style>

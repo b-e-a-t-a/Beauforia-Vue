@@ -10,16 +10,16 @@
     .poster
       object-position: 100% 65%
 
-  &__description
+  &__header
     padding-top: 5vh
+    &Text
+      &::after
+        content: ''
+        display: block
+        border: 1px solid #58c5c2
+        width: 200px
+        margin: 30px auto
     .container
-      .my-about-text
-        &::after
-          content: ''
-          display: block
-          border: 1px solid #58c5c2
-          width: 200px
-          margin: 30px auto
       img
         width: 100%
         height: auto
@@ -35,11 +35,61 @@
             margin-bottom: 0
           p
             text-align: justify
-ul
-  list-style-type: none
-  padding: 0
-li
-  display: inline-block
-  margin: 0 10px
-a
-  color: #42b983
+      .row
+        display: flex
+        padding: 4vh 0
+
+    .col-offer
+      margin: 0 auto
+      position: relative
+      text-align: center
+      &:hover
+        .offerCaption
+          display: none
+          &Text
+            display: block
+            color: #ffffff
+            transition: 5s
+            transition-timing-function: ease-in
+      img
+        max-width: 300px
+        max-height: 300px
+        border-radius: 50%
+      .offerCaption
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        margin: 0
+        font-size: 20px
+        font-weight: bold
+        display: block
+        background-color: rgba(88, 197, 194, 0.9)
+        border-radius: 50%
+        width: 160px
+        height: 160px
+        p
+          color: #ffffff
+          margin: 0 auto
+          padding: 50px 20px
+          vertical-align: center
+      .offerCaptionText
+        position: absolute
+        margin: 0 auto
+        top: 1px
+        left: 0
+        right: 0
+        width: 300px
+        height: 300px
+        display: none
+        background: rgba(0, 0, 0, 0.5)
+        border-radius: 50%
+        cursor: pointer
+        p
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          margin: 0
+          font-size: 22px
+          font-weight: bold

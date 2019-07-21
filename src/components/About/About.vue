@@ -26,11 +26,11 @@
       </carousel>
     </section>
 
-    <section class="About__description">
+    <section class="About__header">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="my-about-text">{{ msg }}</h1>
+            <h1 class="About__headerText">{{ msg }}</h1>
           </div>
         </div>
         <div class="row about-us-row">
@@ -52,26 +52,65 @@
       </div>
     </section>
 
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
+    <section class="About__header section-class">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="About__headerText">Oferta</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-sm-12 col-offer">
+            <img src="../../assets/MotywKwiatowy_small_1.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;"  ondrag="window.event.returnValue=false;"/>
+            <div class="offerCaption">
+              <p>zabiegi na twarz</p>
 
+            </div>
+            <div class="offerCaptionText">
+              <p>zabiegi na twarz</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 col-offer">
+            <img src="../../assets/MotywKwiatowy_small_2.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
+            <div class="offerCaption">
+              <p>zabiegi na ciało</p>
+            </div>
+            <div class="offerCaptionText">
+              <p>zabiegi na ciało</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 col-offer">
+            <img src="../../assets/MotywKwiatowy_small_3.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
+            <div class="offerCaption">
+              <p>manicure<br>pedicure</p>
+            </div>
+            <div class="offerCaptionText">
+              <p>manicure<br>pedicure</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-sm-12 col-offer">
+            <img src="../../assets/MotywKwiatowy_small_4.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;"/>
+            <div class="offerCaption">
+              <p>przedłużanie rzęs</p>
+            </div>
+            <div class="offerCaptionText">
+              <p>przedłużanie <br> rzęs</p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 col-offer">
+            <img src="../../assets/MotywKwiatowy_small_5.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
+            <div class="offerCaption">
+              <p>masaże</p>
+            </div>
+            <div class="offerCaptionText">
+              <p>masaże</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -92,5 +131,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
-  @import './About'
+@import './About'
 </style>

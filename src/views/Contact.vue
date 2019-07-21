@@ -22,12 +22,27 @@
         </div>
       </div>
     </section>
+
+    <section class=" Views__contact section-class">
+      <div class="Views__contactBox">
+        <div class="container">
+          <h3 class="Views__headerText">Skontaktuj się z nami</h3>
+          <contact-form/>
+        </div>
+      </div>
+    </section>
+
+
   </div>
 </template>
 
 <script>
+import ContactForm from '../components/ContactForm/ContactForm';
 export default {
   name: "Contact",
+  components: {
+    ContactForm
+  },
   data() {
     return {
       tel: "48 22 000 00 00",

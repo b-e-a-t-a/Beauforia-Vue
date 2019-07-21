@@ -24,10 +24,10 @@
 					</li>
 					<li class="social-icons">
 						<div class="icon-btn">
-							<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
 						</div>
 						<div class="icon-btn">
-							<a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+							<a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
 						</div>
 					</li>
 				</ul>
