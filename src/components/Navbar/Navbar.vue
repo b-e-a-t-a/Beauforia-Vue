@@ -16,11 +16,11 @@
 				<ul class="contact-list">
 					<li class="contact-tel">
 						<i class="fas fa-phone"></i>
-						<a>&#43;  48 22 000 00 00</a>
+						<a>&#43;  {{tel}}</a>
 					</li>
 					<li class="contact-tel">
 						<i class="fas fa-phone"></i>
-						<a>&#43; 48 889 000 000</a>
+						<a>&#43; {{mobile}}</a>
 					</li>
 					<li class="social-icons">
 						<div class="icon-btn">
@@ -40,9 +40,10 @@
 <script>
 export default {
   name: "Navbar",
-  data () {
+  data() {
     return {
-
+      tel: "48 22 000 00 00",
+      mobile: "48 888 000 000"
     }
   },
   computed: {
@@ -55,5 +56,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import './Navbar'
+@import './Navbar'
 </style>

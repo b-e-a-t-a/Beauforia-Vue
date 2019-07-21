@@ -26,7 +26,7 @@
       </carousel>
     </section>
 
-    <section class="About__description" id="1">
+    <section class="About__description">
       <div class="container">
         <div class="row">
           <div class="col-12">
