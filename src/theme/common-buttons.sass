@@ -1,0 +1,45 @@
+@import "common-fonts.sass"
+@import "common-colors.sass"
+
+
+=btn-white
+  display: inline-block
+  cursor: pointer
+  text-transform: uppercase
+  border: 2px solid $color-green
+  border-radius: 5px
+  background: none
+  color: $color-green
+  padding: 0 2rem
+  line-height: 2rem
+  font-family: $font-family-main
+  font-size: 1rem
+  font-weight: 600
+  letter-spacing: 1px
+  outline: none
+  transition: background .2s, color .2s
+
+=btn-colored
+  +btn-white
+  color: $color-white
+  background: $color-turkois
+  border: 2px solid $color-turkois
+  &:hover, &.active
+    background: lighten($color-turkois, 40%)
+    color: $color-turkois
+  &:disabled, &.disabled
+    background: mix($color-turkois, $color-navbar, 50%)
+    border-color: mix($color-turkois, $color-navbar, 50%)
+    color: mix($color-white, $color-navbar, 50%)
+    cursor: not-allowed
+  &:focus
+    border-color: darken($color-turkois, 10%)
+    background: lighten($color-navbar, 2%)
+    color: darken($color-turkois, 10%)
+
+
+.btn-white
+  +btn-white
+
+.btn-colored
+  +btn-colored

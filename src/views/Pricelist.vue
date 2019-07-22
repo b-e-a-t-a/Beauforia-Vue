@@ -410,6 +410,6 @@
   </div>
 </template>
 
-<style scoped lang="sass">
+<style lang="sass">
 @import './Views'
 </style>

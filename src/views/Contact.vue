@@ -4,7 +4,7 @@
       <div class="Views__contactBox">
         <div class="container">
           <div>
-            <h3 class="Views__headerText">Instytut urody Beauforia</h3>
+            <h2 class="Views__headerText">Instytut urody Beauforia</h2>
             <p class="Views__icon"><span><i class="fas fa-map-marker-alt"></i></span>Adres:</p>
             <p>ul.Grochowska 342</p>
             <p>03-838 Warszawa</p>
@@ -26,7 +26,7 @@
     <section class=" Views__contact section-class">
       <div class="Views__contactBox">
         <div class="container">
-          <h3 class="Views__headerText">Skontaktuj się z nami</h3>
+          <h2 class="Views__headerText">Skontaktuj się z nami</h2>
           <contact-form/>
         </div>
       </div>

@@ -13,10 +13,11 @@
   &__header
     padding-top: 5vh
     &Text
+      font-size: $font-size-header
       &::after
         content: ''
         display: block
-        border: 1px solid #58c5c2
+        border: 1px solid $color-turkois
         width: 200px
         margin: 30px auto
     .container
@@ -48,7 +49,7 @@
           display: none
           &Text
             display: block
-            color: #ffffff
+            color: $color-white
             transition: 5s
             transition-timing-function: ease-in
       img
@@ -64,25 +65,25 @@
         font-size: 20px
         font-weight: bold
         display: block
-        background-color: rgba(88, 197, 194, 0.9)
+        background-color: $color-turkois
         border-radius: 50%
         width: 160px
         height: 160px
         p
-          color: #ffffff
+          color: $color-white
           margin: 0 auto
           padding: 50px 20px
           vertical-align: center
       .offerCaptionText
         position: absolute
         margin: 0 auto
-        top: 1px
+        top: 0
         left: 0
         right: 0
         width: 300px
         height: 300px
         display: none
-        background: rgba(0, 0, 0, 0.5)
+        background: $color-shadow
         border-radius: 50%
         cursor: pointer
         p

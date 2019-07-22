@@ -1,5 +1,5 @@
 .Navbar
-  background-color: #dfe6e9
+  background-color: $color-navbar
   position: fixed
   top: 0
   right: 0
@@ -28,17 +28,15 @@
     justify-content: space-around
     a
       font-weight: bold
-      color: #2c3e50
       padding: 30px
-      text-decoration: none
       transition: .4s ease-out
       &:hover
-        background-color: #58c5c2
-        color: #fff
+        background-color: $color-turkois
+        color: $color-white
       &.router-link-exact-active
-        color: #099c98
+        color: $color-turkois-dark
         &:hover
-          color: #fff
+          color: $color-white
   .contact-box
     padding-left: 10px
     .contact-list
@@ -56,7 +54,6 @@
       i
         padding-right: 5px
       a
-        text-decoration: none
         font-weight: bold
         transition: .2s ease-out
     .social-icons
@@ -65,18 +62,18 @@
       .icon-btn
         height: 30px
         width: 30px
-        border: 1px solid #58c5c2
+        border: 1px solid $color-turkois
         border-radius: 50%
         margin: 5px 10px 0 10px
-        padding: 5px
+        padding: 4px
         cursor: pointer
         i
-          color: #58c5c2
+          color: $color-turkois
         &:hover
-          color: #222f3e
-          border: 1px solid #222f3e
-          background-color: #58c5c2
+          color: $color-black
+          border: 1px solid $color-black
+          background-color: $color-turkois
           transition: .2s ease-out
           transform: scale(1.20)
           i
-            color: #222f3e
+            color: $color-black

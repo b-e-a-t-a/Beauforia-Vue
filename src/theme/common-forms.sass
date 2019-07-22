@@ -1,0 +1,28 @@
+=input
+  border: 2px solid $color-navbar
+  border-radius: 5px
+  font-family: $font-family-main
+  font-size: 1em
+  padding: 0 1rem
+  background: $color-input
+  &::placeholder
+    color: $color-placeholder
+  &:focus
+    border-color: $color-turkois
+    background: $color-white
+    outline: none
+
+=label
+  width: 30%
+  text-align: left
+  display: inline-block
+  transition: transform .3s
+  margin-bottom: 0.2em
+  &:not(:first-child)
+    margin-top: 1rem
+
+input, textarea
+  +input
+
+label
+  +label

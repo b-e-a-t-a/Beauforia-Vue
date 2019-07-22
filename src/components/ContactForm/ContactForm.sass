@@ -2,31 +2,10 @@
   flex: 1 1 65%
   margin: 0 10%
 
-  input, textarea
-    border: 2px solid #dfe6e9
-    border-radius: 5px
-    font-family: 'Open Sans', sans-serif
-    font-size: 1em
-    padding: 0 1rem
-    background: #eee
-    &::placeholder
-      color: #adadad
-    &:focus
-      border-color: rgb(88, 197, 194)
-      background: #fff
-      outline: none
-  label
-    width: 30%
-    text-align: left
-    display: inline-block
-    transition: transform .3s
-    margin-bottom: 0.2em
-    &:not(:first-child)
-      margin-top: 1rem
   input
     width: 70%
     outline: none
-    color: #000000
+    color: $color-black
     line-height: 2em
     transition: border .3s
   textarea
@@ -45,8 +24,8 @@
     .multiselect
       &__tags
         font-size: 1em
-        font-family: 'Open Sans', sans-serif
-        background: #eee
+        font-family: $font-family-main
+        background: $color-input
         outline: none
         transition: border .3s
         min-height: auto
@@ -59,8 +38,8 @@
         padding-left: 0
         font-size: 1em
         &::placeholder
-          color: #adadad
-          background: #eee
+          color: $color-placeholder
+          background: $color-input
           padding: 0
           line-height: 2em
           width: 90%
@@ -70,14 +49,18 @@
         line-height: 2em
         padding: 0
         margin-bottom: 0
-        color: #000000
+        color: $color-black
         background: none
-        font-family: 'Open Sans', sans-serif
+        font-family: $font-family-main
 
   ::v-deep .multiselect--active
     .multiselect__tags
       .multiselect__input
         width: 90% !important
+        margin-bottom: 0
+        padding-bottom: 0
+        vertical-align: middle
+        line-heigh: 2em
     .multiselect__select
       top: -5px
 
@@ -91,81 +74,19 @@
     input
       width: 100%
       cursor: pointer
-      background: #eee
-      font-size: 1em
-      font-family: 'Open Sans', sans-serif
-      border: 2px solid #dfe6e9
-      border-radius: 5px
-      padding: 0 1rem
       line-height: 2em
-      &::placeholder
-        color: #adadad
-      &:focus
-        border-color: rgb(88, 197, 194)
-        background: #fff
-        outline: none
 
     .cell.selected
-      background: rgb(88, 197, 194)
-
-  .btn-white
-    display: inline-block
-    cursor: pointer
-    text-transform: uppercase
-    border: 2px solid #1dd1a1
-    border-radius: 5px
-    background: none
-    color: #1dd1a1
-    padding: 0 2rem
-    line-height: 2rem
-    font-family: 'Open Sans', sans-serif
-    font-size: 1rem
-    font-weight: 600
-    letter-spacing: 1px
-    outline: none
-    transition: background .2s, color .2s
-
-  .btn-colored
-    display: inline-block
-    cursor: pointer
-    text-transform: uppercase
-    border: 2px solid #1dd1a1
-    border-radius: 5px
-    background: none
-    color: #1dd1a1
-    padding: 0 2rem
-    line-height: 2rem
-    font-family: 'Open Sans', sans-serif
-    font-size: 1rem
-    font-weight: 600
-    letter-spacing: 1px
-    outline: none
-    transition: background .2s, color .2s
-
-    border: 2px solid rgb(88, 197, 194)
-    background: rgb(88, 197, 194)
-    color: #ffffff
-    &:hover, &.active
-      background: lighten(rgb(88, 197, 194), 40%)
-      color: rgb(88, 197, 194)
-    &:disabled, &.disabled
-      background: mix(rgb(88, 197, 194), #dfe6e9, 50%)
-      border-color: mix(rgb(88, 197, 194), #dfe6e9, 50%)
-      color: mix(#ffffff, #dfe6e9, 50%)
-      cursor: not-allowed
-    &:focus
-      border-color: darken(rgb(88, 197, 194), 10%)
-      background: lighten(#dfe6e9, 2%)
-      color: darken(rgb(88, 197, 194), 10%)
+      background: $color-turkois
 
   &__send
     margin: 2em auto
 
   &__submitted
-    color: #1dd1a1
+    color: $color-green
 
   &__error
-    color: red
+    color: $color-error
     ul
       list-style-type: none
       padding: 0
