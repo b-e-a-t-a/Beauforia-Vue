@@ -120,7 +120,31 @@
         Poznaj naszą ofertę zabiegów
       </h3>
       <div slot="body">
-        <p>Stosujemy kosmetyki firm:</p>
+        <table class="About__modalTable">
+          <tr>
+            <td class="description">
+              Produkty których używamy:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="toggleBrands">
+                <span v-if="!areBrandsVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div v-if="areBrandsVisible">
+                <ul
+                  v-for="(brand, idx) in brands"
+                  :key="idx"
+                >
+                  <li>{{brand}}</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </modal>
 
@@ -145,7 +169,55 @@
       </h3>
       <div slot="body">
         <p>Z nami najlepiej zadbasz o swoje dłonie i stopy.</p>
-        <p>Stosujemy kosmetyki firm:</p>
+
+        <table class="About__modalTable">
+          <tr>
+            <td class="description">
+              Stosujemy kosmetyki firm:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="toggleBrands">
+                <span v-if="!areBrandsVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div v-if="areBrandsVisible">
+                <ul
+                  v-for="(brand, idx) in brands"
+                  :key="idx"
+                >
+                  <li>{{brand}}</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              Sprawdź jakich typów lakierów używamy:
+            </td>
+            <td>
+              <button class="btn-small" @click="showNailsTypes">
+                <span v-if="!areTypesVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div v-if="areTypesVisible">
+                <ul
+                  v-for="(type, idx) in nailTypes"
+                  :key="idx"
+                >
+                  <li>{{type}}</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </modal>
 
@@ -177,6 +249,12 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import axios               from 'axios';
+import {
+  fetchData,
+  fetchProductsTypes,
+  fetchProductsTags
+}                          from '../../../src/api/requests';
 import Modal               from '../Modal/Modal';
 
 export default {
@@ -191,6 +269,14 @@ export default {
   },
   data() {
     return {
+      data: null,
+      loading: false,
+      error: null,
+      brands: [],
+      nailTypes: [],
+      faceTypes: [],
+      areBrandsVisible: false,
+      areTypesVisible: false,
       isModalVisible: {
         face: false,
         body: false,
@@ -198,6 +284,44 @@ export default {
         eyes: false,
         massages: false
       }
+    }
+  },
+  mounted() {
+    this.loading = true;
+
+    fetchData()
+    .then((response) => {
+      this.data = response.data;
+      const brands = this.data.map(b => b.brand).sort();
+      this.brands = [...new Set(brands)];
+    })
+    .catch(error => {
+      this.error = error;
+    })
+    .finally(() => {
+      this.loading = false;
+    });
+
+    fetchProductsTypes('nail_polish')
+    .then((response) => {
+      const nailTypes = response.data.filter(n => n.tag_list.length > 0).map(n => n.tag_list);
+      const mergedNailTypes = [].concat.apply([], nailTypes);
+      const sortedNailTypes = mergedNailTypes.sort();
+      this.nailTypes = [...new Set(sortedNailTypes)];
+    })
+    .catch(error => {
+      this.error = error;
+    })
+    .finally(() => {
+      this.loading = false;
+    });
+  },
+  methods: {
+    toggleBrands() {
+      this.areBrandsVisible = !this.areBrandsVisible;
+    },
+    showNailsTypes() {
+      this.areTypesVisible = !this.areTypesVisible;
     }
   }
 };
