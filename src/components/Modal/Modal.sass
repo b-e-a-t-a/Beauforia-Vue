@@ -1,0 +1,51 @@
+.Modal
+  &-mask
+    position: fixed
+    z-index: 9998
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $color-shadow
+    display: table
+    transition: opacity .3s ease
+    overflow-y: hidden
+
+  &-wrapper
+    display: table-cell
+    vertical-align: middle
+
+  &-container
+    width: 50vw
+    max-height: 80vh
+    margin: 0 auto
+    padding: 2rem
+    background-color: $color-white
+    border-radius: 5px
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
+    transition: all .3s ease
+    overflow-x: auto
+
+  &-header
+    margin-top: 0
+    border-bottom: 1px solid $color-navbar
+    h3
+      color: $color-turkois
+      font-size: $font-size-subheader
+
+  &-body
+    margin: 20px 0
+
+  &-footer
+    padding: 10px
+
+  &-fade-enter-to, &-fade-leave-to
+    opacity: 0
+
+  &-fade-enter-active, &-fade-leave-active
+    transition: opacity .5s ease
+
+  &-fade-enter &-container,
+  &-fade-leave-active &-container
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)

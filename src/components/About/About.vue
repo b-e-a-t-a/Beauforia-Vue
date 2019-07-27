@@ -66,7 +66,7 @@
               <p>zabiegi na twarz</p>
 
             </div>
-            <div class="offerCaptionText">
+            <div class="offerCaptionText" @click="isModalVisible.face = true">
               <p>zabiegi na twarz</p>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <div class="offerCaption">
               <p>zabiegi na ciało</p>
             </div>
-            <div class="offerCaptionText">
+            <div class="offerCaptionText" @click="isModalVisible.body = true">
               <p>zabiegi na ciało</p>
             </div>
           </div>
@@ -84,7 +84,7 @@
             <div class="offerCaption">
               <p>manicure<br>pedicure</p>
             </div>
-            <div class="offerCaptionText">
+            <div class="offerCaptionText" @click="isModalVisible.manicure = true">
               <p>manicure<br>pedicure</p>
             </div>
           </div>
@@ -95,7 +95,7 @@
             <div class="offerCaption">
               <p>przedłużanie rzęs</p>
             </div>
-            <div class="offerCaptionText">
+            <div class="offerCaptionText" @click="isModalVisible.eyes = true">
               <p>przedłużanie <br> rzęs</p>
             </div>
           </div>
@@ -104,18 +104,80 @@
             <div class="offerCaption">
               <p>masaże</p>
             </div>
-            <div class="offerCaptionText">
+            <div class="offerCaptionText" @click="isModalVisible.massages = true">
               <p>masaże</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <modal
+      v-if="isModalVisible.face"
+      @close="isModalVisible.face = false"
+    >
+      <h3 slot="header">
+        Poznaj naszą ofertę zabiegów
+      </h3>
+      <div slot="body">
+        <p>Stosujemy kosmetyki firm:</p>
+      </div>
+    </modal>
+
+    <modal
+      v-if="isModalVisible.body"
+      @close="isModalVisible.body = false"
+    >
+      <h3 slot="header">
+        Poznaj naszą ofertę zabiegów
+      </h3>
+      <div slot="body">
+        <p>Stosujemy kosmetyki firm:</p>
+      </div>
+    </modal>
+
+    <modal
+      v-if="isModalVisible.manicure"
+      @close="isModalVisible.manicure = false"
+    >
+      <h3 slot="header">
+        Poznaj naszą ofertę pięlegnacji dłoni i stóp
+      </h3>
+      <div slot="body">
+        <p>Z nami najlepiej zadbasz o swoje dłonie i stopy.</p>
+        <p>Stosujemy kosmetyki firm:</p>
+      </div>
+    </modal>
+
+    <modal
+      v-if="isModalVisible.eyes"
+      @close="isModalVisible.eyes = false"
+    >
+      <h3 slot="header">
+        Poznaj naszą ofertę pięlegnacji oczu
+      </h3>
+      <div slot="body">
+        <p>Stosujemy kosmetyki firm:</p>
+      </div>
+    </modal>
+
+    <modal
+      v-if="isModalVisible.massages"
+      @close="isModalVisible.massages = false"
+    >
+      <h3 slot="header">
+        Poznaj naszą ofertę masaży
+      </h3>
+      <div slot="body">
+        <p>Stosujemy kosmetyki firm:</p>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import Modal               from '../Modal/Modal';
 
 export default {
   name: "About",
@@ -124,7 +186,19 @@ export default {
   },
   components: {
     Carousel,
-    Slide
+    Slide,
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: {
+        face: false,
+        body: false,
+        manicure: false,
+        eyes: false,
+        massages: false
+      }
+    }
   }
 };
 </script>
