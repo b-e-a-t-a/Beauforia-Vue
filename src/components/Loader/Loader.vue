@@ -1,5 +1,5 @@
 <template>
-  <transition name="Loader">
+  <transition name="Loader__fade">
     <div class="Loader">
       <div class="Loader__wrapper">
         <grid-loader

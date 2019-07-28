@@ -385,6 +385,13 @@
         </table>
       </div>
     </modal>
+
+    <notification v-if="error" :error="error" @close="error = null">
+      <div slot="content">
+        <p>Wystąpił błąd. Sprawdź swoje połączenie internetowe.</p>
+        <p>{{error}}</p>
+      </div>
+    </notification>
   </div>
 </template>
 
@@ -397,6 +404,7 @@ import {
   fetchProductsTags
 }                          from '../../../src/api/requests';
 import Modal               from '../Modal/Modal';
+import Notification        from '../Notification/Notification';
 
 export default {
   name: "About",
@@ -406,7 +414,8 @@ export default {
   components: {
     Carousel,
     Slide,
-    Modal
+    Modal,
+    Notification
   },
   data() {
     return {

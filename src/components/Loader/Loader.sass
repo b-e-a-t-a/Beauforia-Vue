@@ -17,3 +17,14 @@
     position: absolute
     left: 48%
     top: 43%
+
+  &__fade-enter-to, &__fade-leave-to
+    opacity: 0
+
+  &__fade-enter-active, &__fade-leave-active
+    transition: opacity .5s ease
+
+  &__fade-enter &__wrapper,
+  &__fade-leave-active &__wrapper
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
