@@ -95,17 +95,22 @@
           font-size: $font-size-subheader
           font-weight: bold
   &__modalTable
-    width: 70%
+    width: 80%
     margin: 0 auto
+    padding-top: 1em
+    border-top: 1px solid $color-navbar
     tr
       margin-bottom: 2em
     .description
       vertical-align: top
       text-align: left
+    .action
+      width: 40%
     ul
       list-style-type: none
       padding-left: 0
       li
+        padding: .2em
         &::before
           content: "\2022"
           color: $color-turkois
@@ -113,3 +118,10 @@
           display: inline
           width: 1em
           padding-right: .5em
+  &__modalSpinner
+    margin: 2em 0
+    .fa
+      font-size: 2em
+      color: $color-turkois
+  &__modalList
+    max-height: 50%

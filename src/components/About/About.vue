@@ -120,26 +120,63 @@
         Poznaj naszą ofertę zabiegów
       </h3>
       <div slot="body">
+        <p>W naszej bogatej ofercie zabiegów na pewno znajdziesz coś dla siebie.
+          Skorzystaj z wybranych zabiegów kosmetycznych na twarz oraz zabiegów medycyny estetycznej.
+          Oferujemy również profesjonalne doradztwo i zabiegi w zakresie podologii.
+          Nasi specjaliści zajmą się Tobą kompleksowo.</p>
         <table class="About__modalTable">
           <tr>
             <td class="description">
               Produkty których używamy:
             </td>
             <td class="action">
-              <button class="btn-small" @click="toggleBrands">
-                <span v-if="!areBrandsVisible">
+              <button class="btn-small" @click="showFaceProducts">
+                <span v-if="!areFaceProductsVisible">
                   <i class="fas fa-sort-down"></i>
                 </span>
                 <span v-else>
                   <i class="fas fa-sort-up"></i>
                 </span>
               </button>
-              <div v-if="areBrandsVisible">
-                <ul
-                  v-for="(brand, idx) in brands"
-                  :key="idx"
-                >
-                  <li>{{brand}}</li>
+              <div class="About__modalSpinner" v-if="loading.face && !areFaceProductsVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.face && areFaceProductsVisible">
+                <ul>
+                  <li
+                    v-for="(name, idx) in faceProducts"
+                    :key="idx"
+                  >
+                    {{name}}
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="description">
+              Oferujemy szeroką gamę kategorii:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="showFaceCategories">
+                <span v-if="!areFaceCategoriesVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div class="About__modalSpinner" v-if="loading.faceCategories && !areFaceCategoriesVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.faceCategories && areFaceCategoriesVisible">
+                <ul>
+                  <li
+                    v-for="(category, idx) in faceCategories"
+                    :key="idx"
+                  >
+                    {{category}}
+                  </li>
                 </ul>
               </div>
             </td>
@@ -156,7 +193,41 @@
         Poznaj naszą ofertę zabiegów
       </h3>
       <div slot="body">
-        <p>Stosujemy kosmetyki firm:</p>
+        <p>W naszej bogatej ofercie zabiegów na pewno znajdziesz coś dla siebie.
+          Skorzystaj z wybranych zabiegów kosmetycznych na ciało oraz zabiegów medycyny estetycznej.
+          Oferujemy również profesjonalne doradztwo i zabiegi w zakresie podologii.
+          Nasi specjaliści zajmą się Tobą kompleksowo.
+        </p>
+        <table class="About__modalTable">
+          <tr>
+            <td class="description">
+              Stosujemy kosmetyki firm:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="toggleBrands">
+                <span v-if="!areBrandsVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div class="About__modalSpinner" v-if="loading.brands && areBrandsVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.brands && areBrandsVisible">
+                <ul>
+                  <li
+                    v-for="(brand, idx) in brands"
+                    :key="idx"
+                  >
+                    {{brand}}
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </modal>
 
@@ -184,12 +255,17 @@
                   <i class="fas fa-sort-up"></i>
                 </span>
               </button>
-              <div v-if="areBrandsVisible">
-                <ul
-                  v-for="(brand, idx) in brands"
-                  :key="idx"
-                >
-                  <li>{{brand}}</li>
+              <div class="About__modalSpinner" v-if="loading.brands && areBrandsVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.brands && areBrandsVisible">
+                <ul>
+                  <li
+                    v-for="(brand, idx) in brands"
+                    :key="idx"
+                  >
+                    {{brand}}
+                  </li>
                 </ul>
               </div>
             </td>
@@ -207,12 +283,17 @@
                   <i class="fas fa-sort-up"></i>
                 </span>
               </button>
-              <div v-if="areTypesVisible">
-                <ul
-                  v-for="(type, idx) in nailTypes"
-                  :key="idx"
-                >
-                  <li>{{type}}</li>
+              <div class="About__modalSpinner" v-if="loading.nails && !areTypesVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.nails && areTypesVisible">
+                <ul>
+                  <li
+                    v-for="(type, idx) in nailTypes"
+                    :key="idx"
+                  >
+                    {{type}}
+                  </li>
                 </ul>
               </div>
             </td>
@@ -229,7 +310,37 @@
         Poznaj naszą ofertę pięlegnacji oczu
       </h3>
       <div slot="body">
-        <p>Stosujemy kosmetyki firm:</p>
+        <p>Wszystkie dostępne usługi znajdziesz w naszym cenniku</p>
+        <table class="About__modalTable">
+          <tr>
+            <td class="description">
+              Stosujemy kosmetyki firm:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="toggleBrands">
+                <span v-if="!areBrandsVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div class="About__modalSpinner" v-if="loading.brands && areBrandsVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.brands && areBrandsVisible">
+                <ul>
+                  <li
+                    v-for="(brand, idx) in brands"
+                    :key="idx"
+                  >
+                    {{brand}}
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </modal>
 
@@ -241,7 +352,37 @@
         Poznaj naszą ofertę masaży
       </h3>
       <div slot="body">
-        <p>Stosujemy kosmetyki firm:</p>
+        <p>Poczuj Co To Prawdziwy Relaks! Zapraszamy do skorzystania z usług naszych wykwalifikowanych masażystów.</p>
+        <table class="About__modalTable">
+          <tr>
+            <td class="description">
+              Stosujemy kosmetyki firm:
+            </td>
+            <td class="action">
+              <button class="btn-small" @click="toggleBrands">
+                <span v-if="!areBrandsVisible">
+                  <i class="fas fa-sort-down"></i>
+                </span>
+                <span v-else>
+                  <i class="fas fa-sort-up"></i>
+                </span>
+              </button>
+              <div class="About__modalSpinner" v-if="loading.brands && areBrandsVisible">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              </div>
+              <div class="About__modalList" v-if="!loading.brands && areBrandsVisible">
+                <ul>
+                  <li
+                    v-for="(brand, idx) in brands"
+                    :key="idx"
+                  >
+                    {{brand}}
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </modal>
   </div>
@@ -270,25 +411,31 @@ export default {
   data() {
     return {
       data: null,
-      loading: false,
       error: null,
       brands: [],
       nailTypes: [],
-      faceTypes: [],
+      faceProducts: [],
+      faceCategories: [],
       areBrandsVisible: false,
       areTypesVisible: false,
+      areFaceProductsVisible: false,
+      areFaceCategoriesVisible: false,
       isModalVisible: {
         face: false,
         body: false,
         manicure: false,
         eyes: false,
         massages: false
+      },
+      loading: {
+        brands: true,
+        nails: false,
+        face: false,
+        faceCategories: false,
       }
     }
   },
   mounted() {
-    this.loading = true;
-
     fetchData()
     .then((response) => {
       this.data = response.data;
@@ -299,29 +446,59 @@ export default {
       this.error = error;
     })
     .finally(() => {
-      this.loading = false;
-    });
-
-    fetchProductsTypes('nail_polish')
-    .then((response) => {
-      const nailTypes = response.data.filter(n => n.tag_list.length > 0).map(n => n.tag_list);
-      const mergedNailTypes = [].concat.apply([], nailTypes);
-      const sortedNailTypes = mergedNailTypes.sort();
-      this.nailTypes = [...new Set(sortedNailTypes)];
-    })
-    .catch(error => {
-      this.error = error;
-    })
-    .finally(() => {
-      this.loading = false;
+      this.loading.brands = false;
     });
   },
   methods: {
+    showNailsTypes() {
+      this.loading.nails = true;
+      fetchProductsTypes('nail_polish')
+      .then((response) => {
+        const nailTypes = response.data.filter(n => n.tag_list.length > 0).map(n => n.tag_list);
+        const mergedNailTypes = [].concat.apply([], nailTypes);
+        const sortedNailTypes = mergedNailTypes.sort();
+        this.nailTypes = [...new Set(sortedNailTypes)];
+        this.areTypesVisible = !this.areTypesVisible;
+      })
+      .catch(error => {
+        this.error = error;
+      })
+      .finally(() => {
+        this.loading.nails = false;
+      })
+    },
+    showFaceProducts() {
+      this.loading.face = true;
+      fetchProductsTypes('foundation')
+      .then((response) => {
+        this.faceProducts = response.data.map(p => p.name);
+        this.areFaceProductsVisible = !this.areFaceProductsVisible;
+      })
+      .catch(error => {
+        this.error = error;
+      })
+      .finally(() => {
+        this.loading.face = false;
+      })
+    },
+    showFaceCategories() {
+      this.loading.faceCategories = true;
+      fetchProductsTypes('foundation')
+      .then((response) => {
+        const faceCategories = response.data.filter(c => c.category).map(c => c.category);
+        const sortedCategories = faceCategories.sort();
+        this.faceCategories = [...new Set(sortedCategories)];
+        this.areFaceCategoriesVisible = !this.areFaceCategoriesVisible;
+      })
+      .catch(error => {
+        this.error = error;
+      })
+      .finally(() => {
+        this.loading.faceCategories = false;
+      })
+    },
     toggleBrands() {
       this.areBrandsVisible = !this.areBrandsVisible;
-    },
-    showNailsTypes() {
-      this.areTypesVisible = !this.areTypesVisible;
     }
   }
 };
