@@ -114,8 +114,7 @@
 
     <modal
       v-if="isModalVisible.face"
-      @close="isModalVisible.face = false"
-    >
+      @close="isModalVisible.face = false">
       <h3 slot="header">
         Poznaj naszą ofertę zabiegów
       </h3>
@@ -187,8 +186,7 @@
 
     <modal
       v-if="isModalVisible.body"
-      @close="isModalVisible.body = false"
-    >
+      @close="isModalVisible.body = false">
       <h3 slot="header">
         Poznaj naszą ofertę zabiegów
       </h3>
@@ -233,8 +231,7 @@
 
     <modal
       v-if="isModalVisible.manicure"
-      @close="isModalVisible.manicure = false"
-    >
+      @close="isModalVisible.manicure = false">
       <h3 slot="header">
         Poznaj naszą ofertę pięlegnacji dłoni i stóp
       </h3>
@@ -304,8 +301,7 @@
 
     <modal
       v-if="isModalVisible.eyes"
-      @close="isModalVisible.eyes = false"
-    >
+      @close="isModalVisible.eyes = false">
       <h3 slot="header">
         Poznaj naszą ofertę pięlegnacji oczu
       </h3>
@@ -356,7 +352,7 @@
         <table class="About__modalTable">
           <tr>
             <td class="description">
-              Stosujemy kosmetyki firm:
+              Zobacz jakie typy masażu wykonujemy:
             </td>
             <td class="action">
               <button class="btn-small" @click="toggleBrands">
@@ -371,14 +367,17 @@
                 <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
               </div>
               <div class="About__modalList" v-if="!loading.brands && areBrandsVisible">
-                <ul>
-                  <li
-                    v-for="(brand, idx) in brands"
-                    :key="idx"
-                  >
-                    {{brand}}
-                  </li>
-                </ul>
+                <div class="About__search">
+                  <input type="text" v-model="search" placeholder="Szukaj masażu..."/>
+                  <ul>
+                    <li
+                      v-for="(filteredBrand, idx) in filteredBrands"
+                      :key="idx"
+                    >
+                      {{filteredBrand}}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </td>
           </tr>
@@ -421,6 +420,7 @@ export default {
     return {
       data: null,
       error: null,
+      search: '',
       brands: [],
       nailTypes: [],
       faceProducts: [],
@@ -508,6 +508,15 @@ export default {
     },
     toggleBrands() {
       this.areBrandsVisible = !this.areBrandsVisible;
+    }
+  },
+  computed: {
+    filteredBrands() {
+      if(!this.brands) return [];
+      return this.brands.filter(brand => {
+        // return (brand || '').toLowerCase().includes(this.search.toLowerCase()) // not for IE11
+        return (brand || '').toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+      });
     }
   }
 };
