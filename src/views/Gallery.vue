@@ -5,9 +5,9 @@
         <loader v-if="loading === true" />
         <div class="row">
           <div class="col-12">
-            <h2 class="Views__headerText">Galeria</h2>
+            <h2 class="Views__headerText">{{$t('gallery.header')}}</h2>
             <div class="Views__galleryWrapper">
-              <p>Zapoznaj się z galerią zdjęć naszych produktów i usług</p>
+              <p>{{$t('gallery.text')}}</p>
             </div>
             <div class="Views__galleryPhotos">
               <div
@@ -18,7 +18,7 @@
                 <span class="Views__galleryPhotoDescription">
                   <ul>
                     <li class="name">
-                      <b>Name:</b>
+                      <b>{{$t('gallery.name')}}:</b>
                       {{image.name}}
                       <i
                         class="fa fa-info-circle"
@@ -39,8 +39,8 @@
                       >
                       </div>
                     </li>
-                    <li><b>Brand:</b> {{image.brand}}</li>
-                    <li><b>Category:</b> {{image.category}}</li>
+                    <li><b>{{$t('gallery.brand')}}:</b> {{image.brand}}</li>
+                    <li><b>{{$t('gallery.category')}}:</b> {{image.category}}</li>
                   </ul>
                 </span>
               </div>

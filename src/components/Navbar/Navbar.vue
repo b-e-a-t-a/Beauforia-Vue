@@ -6,12 +6,17 @@
 			</router-link>
 
       <div class="menu-list">
-        <router-link to="/">Home</router-link>
-        <router-link to="/cennik">Cennik</router-link>
-        <router-link to="/galeria">Galeria</router-link>
-        <router-link to="/kontakt">Kontakt</router-link>
+        <router-link to="/">{{$t('menu.home')}}</router-link>
+        <router-link to="/cennik">{{$t('menu.pricelist')}}</router-link>
+        <router-link to="/galeria">{{$t('menu.gallery')}}</router-link>
+        <router-link to="/kontakt">{{$t('menu.contact')}}</router-link>
       </div>
 
+      <div class="language-box">
+        <button v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
+          <flag :iso="entry.flag" v-bind:squared=false />
+        </button>
+      </div>
       <div class="contact-box">
 				<ul class="contact-list">
 					<li class="contact-tel">
@@ -38,19 +43,28 @@
 </template>
 
 <script>
+import i18n from '@/i18n/i18n';
+
 export default {
   name: "Navbar",
   data() {
     return {
       tel: "48 22 000 00 00",
-      mobile: "48 888 000 000"
+      mobile: "48 888 000 000",
+      languages: [
+        { flag: 'us', language: 'en', title: 'English' },
+        { flag: 'es', language: 'es', title: 'Español' },
+        { flag: 'pl', language: 'pl', title: 'Polish' }
+      ]
     }
   },
   computed: {
 
   },
   methods: {
-
+    changeLocale(locale) {
+      i18n.locale = locale;
+    }
   }
 }
 </script>

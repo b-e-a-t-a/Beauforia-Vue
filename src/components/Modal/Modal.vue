@@ -16,7 +16,7 @@
               <button
                 class="Modal-button btn-colored"
                 @click="$emit('close')">
-                Zamknij
+                {{$t('modal.close')}}
               </button>
             </slot>
           </div>

@@ -11,6 +11,7 @@
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar/Navbar';
+import i18n from '@/i18n/i18n';
 
 export default {
   name: 'App',

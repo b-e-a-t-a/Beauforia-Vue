@@ -4,9 +4,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="Views__headerText">Cennik</h2>
+            <h2 class="Views__headerText">{{$t('pricelist.header')}}</h2>
             <div class="Views__pricelistWrapper">
-              <p>Do naszych zabiegów wybraliśmy  najlepsze i najczystsze preparaty kosmetyczne,  zaawansowane technologicznie, oparte o naturalne składniki. Kosmetyki, które świetnie działają, wspaniale pachną naturą, a ich używanie to czysta przyjemność.</p>
+              <p>{{$t('pricelist.text')}}</p>
               <table class="table table-bordered">
                 <thead class="common-thead">
                   <tr>

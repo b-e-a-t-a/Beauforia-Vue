@@ -30,20 +30,14 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="About__headerText">{{ msg }}</h2>
+            <h2 class="About__headerText">{{ $t('about.header') }}</h2>
           </div>
         </div>
         <div class="row about-us-row">
           <div class="col-lg-6 col-sm-12 text-column">
-            <p>Miło nam, że tu zajrzałaś! To znaczy, że jesteś świadomą osobą dbającą o siebie. Dlaczego <b>Beauforia</b>?
-              Jest to połączenie francuskiego <i>piękna</i> (beau, beauté) z radością, euforią. Naszą misją jest zadowolenie z
-              efektów i Wasze dobre samopoczucie.
-              Chcemy dostarczyć Wam, naszym drogim Klientkom, czystej euforii, <b>radości bycia piękną</b>!</p>
-            <p>U nas możesz odpocząć i zrelaksować się. <b>Instytut Urody Beauforia</b> to miejsce, w którym bardzo dokładnie
-              wsłuchujemy się w Wasze oczekiwania
-              i dobieramy zabiegi stosownie do indywidualnych potrzeb.</p>
-            <p>Dobro klientów stawiamy na pierwszym miejscu, dlatego nie zwlekaj! Odwiedź nas i pozwól Nam bezkarnie Cię
-              rozpieszczać!</p>
+            <p>{{$t('about.text_1')}}<b> {{$t('about.text_2')}} </b>{{$t('about.text_3')}}<i> {{$t('about.text_4')}} </i>{{$t('about.text_5')}}</p>
+            <p>{{$t('about.text_6')}}<b> {{$t('about.text_7')}} </b>{{$t('about.text_8')}}</p>
+            <p>{{$t('about.text_8')}}{{$t('about.text_9')}}</p>
           </div>
           <div class="col-lg-6 col-sm-12 photo">
             <img src="../../assets/about.jpg" alt="about-us" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;">
@@ -56,36 +50,36 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="About__headerText">Oferta</h2>
+            <h2 class="About__headerText">{{$t('offer.header')}}</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-sm-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_1.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;"  ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
-              <p>zabiegi na twarz</p>
+              <p>{{$t('offer.face')}}</p>
 
             </div>
             <div class="offerCaptionText" @click="isModalVisible.face = true">
-              <p>zabiegi na twarz</p>
+              <p>{{$t('offer.face')}}</p>
             </div>
           </div>
           <div class="col-lg-4 col-sm-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_2.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
-              <p>zabiegi na ciało</p>
+              <p>{{$t('offer.body')}}</p>
             </div>
             <div class="offerCaptionText" @click="isModalVisible.body = true">
-              <p>zabiegi na ciało</p>
+              <p>{{$t('offer.body')}}</p>
             </div>
           </div>
           <div class="col-lg-4 col-sm-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_3.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
-              <p>manicure<br>pedicure</p>
+              <p>{{$t('offer.manicure')}}<br>{{$t('offer.pedicure')}}</p>
             </div>
             <div class="offerCaptionText" @click="isModalVisible.manicure = true">
-              <p>manicure<br>pedicure</p>
+              <p>{{$t('offer.manicure')}}<br>{{$t('offer.pedicure')}}</p>
             </div>
           </div>
         </div>
@@ -93,19 +87,19 @@
           <div class="col-lg-6 col-sm-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_4.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
-              <p>przedłużanie rzęs</p>
+              <p>{{$t('offer.eyelash')}}</p>
             </div>
             <div class="offerCaptionText" @click="isModalVisible.eyes = true">
-              <p>przedłużanie <br> rzęs</p>
+              <p>{{$t('offer.eyelash')}}</p>
             </div>
           </div>
           <div class="col-lg-6 col-sm-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_5.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
-              <p>masaże</p>
+              <p>{{$t('offer.massages')}}</p>
             </div>
             <div class="offerCaptionText" @click="isModalVisible.massages = true">
-              <p>masaże</p>
+              <p>{{$t('offer.massages')}}</p>
             </div>
           </div>
         </div>
@@ -387,7 +381,7 @@
 
     <notification v-if="error" :error="error" @close="error = null">
       <div slot="content">
-        <p>Wystąpił błąd. Sprawdź swoje połączenie internetowe.</p>
+        <p>{{$t('about.error_message')}}</p>
         <p>{{error}}</p>
       </div>
     </notification>

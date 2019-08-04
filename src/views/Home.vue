@@ -1,6 +1,6 @@
 <template>
   <div class="Views">
-    <About msg="O nas" />
+    <About />
   </div>
 </template>
 

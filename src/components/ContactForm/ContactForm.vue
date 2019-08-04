@@ -1,45 +1,45 @@
 <template>
   <form class="ContactForm" @submit.prevent="submitForm">
-    <label for="name">Imię</label>
+    <label for="name">{{$t('contact.form.name')}}</label>
     <input
       v-model="contact.name"
       name="name"
       type="text"
-      placeholder="Podaj imię"
+      :placeholder="$t('contact.form.placeholder.name')"
       required
     />
-    <label for="surname">Nazwisko</label>
+    <label for="surname">{{$t('contact.form.surname')}}</label>
     <input
       v-model="contact.surname"
       name="surname"
       type="text"
-      placeholder="Podaj nazwisko"
+      :placeholder="$t('contact.form.placeholder.surname')"
       required
     />
-    <label for="mail">Adres e-mail</label>
+    <label for="mail">{{$t('contact.form.email')}}</label>
     <input
       v-model="contact.email"
       name="mail"
       type="email"
-      placeholder="Twój adres e-mail"
+      :placeholder="$t('contact.form.placeholder.email')"
       required
     />
-    <label for="phone">Numer telefonu</label>
+    <label for="phone">{{$t('contact.form.phone')}}</label>
     <input
       v-model="contact.phone"
       name="phone"
-      placeholder="Twój numer telefonu"
+      :placeholder="$t('contact.form.placeholder.phone')"
       required
     />
     <div>
       <span>
-        <label for="birthDate">Data urodzenia</label>
+        <label for="birthDate">{{$t('contact.form.birthdate')}}</label>
       </span>
       <datepicker
         v-model="contact.birthDate"
         name="birthDate"
         class="datepicker"
-        placeholder="Format: yyyy-mm-dd"
+        :placeholder="$t('contact.form.placeholder.birthdate')"
         :format="'yyyy-MM-dd'"
         :minimumView="'day'"
         :maximumView="'day'"
@@ -50,20 +50,20 @@
 
     <div>
       <span>
-        <label for="reason">Cel kontaktu</label>
+        <label for="reason">{{$t('contact.form.reason')}}</label>
       </span>
       <multiselect
         v-model="contact.reason"
         name="reason"
         :options="reasons"
-        placeholder="Wybierz jeden"
+        :placeholder="$t('contact.form.placeholder.reason')"
         required
       >
       </multiselect>
     </div>
     <textarea
       v-model="contact.message"
-      placeholder="Wpisz treść wiadomości"
+        :placeholder="$t('contact.form.placeholder.text')"
       rows="7"
     >
     </textarea>
@@ -72,11 +72,11 @@
       class="btn-colored ContactForm__send"
       :disabled="!isFormFilled"
     >
-      Wyślij
+      {{$t('contact.form.send')}}
     </button>
 
     <div v-if="submitStatus === 'submitted'" class="ContactForm__submitted">
-      <p>Dziękujemy! <br/> Wiadomość została wysłana
+      <p>{{$t('contact.form.thanks')}} <br/> {{$t('contact.form.submitted')}}
       </p>
     </div>
     <div v-if="errors.length" class="ContactForm__error">
@@ -97,7 +97,12 @@ export default {
   data() {
     return {
       errors: [],
-      reasons: ["Proszę o kontakt", "Konsultacja", "Rezerwacja wizyty", "Odwołanie wizyty"],
+      reasons: [
+        this.$t("contact.form.reason_list.contact"),
+        this.$t("contact.form.reason_list.consulting"),
+        this.$t("contact.form.reason_list.reservation"),
+        this.$t("contact.form.reason_list.cancellation")
+      ],
       submitStatus: null,
       contact: {
         name: null,
