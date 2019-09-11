@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-sm-12 col-offer">
+          <div class="col-m-4 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_1.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;"  ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
               <p>{{$t('offer.face')}}</p>
@@ -64,7 +64,7 @@
               <p>{{$t('offer.face')}}</p>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-12 col-offer">
+          <div class="col-m-4 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_2.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.body')}}</p>
@@ -73,7 +73,7 @@
               <p>{{$t('offer.body')}}</p>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-12 col-offer">
+          <div class="col-m-4 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_3.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.manicure')}}<br>{{$t('offer.pedicure')}}</p>
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6 col-sm-12 col-offer">
+          <div class="col-m-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_4.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
               <p>{{$t('offer.eyelash')}}</p>
@@ -93,7 +93,7 @@
               <p>{{$t('offer.eyelash')}}</p>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-12 col-offer">
+          <div class="col-m-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_5.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.massages')}}</p>

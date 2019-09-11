@@ -5,6 +5,34 @@
 				<img src="../../assets/Beauforia_Logo_Poziom_cut.png" alt="logo" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;">
 			</router-link>
 
+      <Slide right noOverlay class="hamburger">
+        <router-link to="/">{{$t('menu.home')}}</router-link>
+        <router-link to="/cennik">{{$t('menu.pricelist')}}</router-link>
+        <router-link to="/galeria">{{$t('menu.gallery')}}</router-link>
+        <router-link to="/kontakt">{{$t('menu.contact')}}</router-link>
+        <div class="hamburger-language-box">
+          <button v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
+            <flag :iso="entry.flag" v-bind:squared=false />
+          </button>
+        </div>
+				<li class="contact-tel">
+					<i class="fas fa-phone"></i>
+					<a>&#43;  {{tel}}</a>
+				</li>
+				<li class="contact-tel">
+					<i class="fas fa-phone"></i>
+					<a>&#43; {{mobile}}</a>
+				</li>
+        <li class="social-icons">
+					<div class="icon-btn">
+						<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="icon-btn">
+						<a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+					</div>
+				</li>
+      </Slide>
+
       <div class="menu-list">
         <router-link to="/">{{$t('menu.home')}}</router-link>
         <router-link to="/cennik">{{$t('menu.pricelist')}}</router-link>
@@ -44,9 +72,11 @@
 
 <script>
 import i18n from '@/i18n/i18n';
+import { Slide } from 'vue-burger-menu';
 
 export default {
   name: "Navbar",
+  components: { Slide },
   data() {
     return {
       tel: "48 22 000 00 00",
