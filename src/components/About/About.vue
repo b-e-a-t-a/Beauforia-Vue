@@ -34,12 +34,12 @@
           </div>
         </div>
         <div class="row about-us-row">
-          <div class="col-lg-6 col-sm-12 text-column">
+          <div class="text-column">
             <p>{{$t('about.text_1')}}<b> {{$t('about.text_2')}} </b>{{$t('about.text_3')}}<i> {{$t('about.text_4')}} </i>{{$t('about.text_5')}}</p>
             <p>{{$t('about.text_6')}}<b> {{$t('about.text_7')}} </b>{{$t('about.text_8')}}</p>
             <p>{{$t('about.text_8')}}{{$t('about.text_9')}}</p>
           </div>
-          <div class="col-lg-6 col-sm-12 photo">
+          <div class="photo">
             <img src="../../assets/about.jpg" alt="about-us" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;">
           </div>
         </div>
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-m-4 col-s-12 col-offer">
+          <div class="col-4 col-m-4 col-sm-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_1.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;"  ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
               <p>{{$t('offer.face')}}</p>
@@ -64,7 +64,7 @@
               <p>{{$t('offer.face')}}</p>
             </div>
           </div>
-          <div class="col-m-4 col-s-12 col-offer">
+          <div class="col-4 col-m-4 col-sm-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_2.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.body')}}</p>
@@ -73,7 +73,7 @@
               <p>{{$t('offer.body')}}</p>
             </div>
           </div>
-          <div class="col-m-4 col-s-12 col-offer">
+          <div class="col-4 col-m-4 col-sm-12 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_3.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.manicure')}}<br>{{$t('offer.pedicure')}}</p>
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-m-6 col-s-12 col-offer">
+          <div class="col-6 col-m-6 col-sm-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_4.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;"/>
             <div class="offerCaption">
               <p>{{$t('offer.eyelash')}}</p>
@@ -93,7 +93,7 @@
               <p>{{$t('offer.eyelash')}}</p>
             </div>
           </div>
-          <div class="col-m-6 col-s-12 col-offer">
+          <div class="col-6 col-m-6 col-sm-6 col-s-12 col-offer">
             <img src="../../assets/MotywKwiatowy_small_5.jpg" alt="motyw-kwiatowy" oncontextmenu="window.event.returnValue=false;" ondrag="window.event.returnValue=false;" />
             <div class="offerCaption">
               <p>{{$t('offer.massages')}}</p>

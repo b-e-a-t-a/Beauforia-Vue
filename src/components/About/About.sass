@@ -3,7 +3,7 @@
   &__carouselSlide
     text-align: center
     img
-      height: calc(100vh - 110px - 10vh)
+      height: calc(100vh - 105px - 10vh)
       object-fit: cover
       width: 100%
       display: block
@@ -131,3 +131,60 @@
     margin: 2rem
     input
       width: 100%
+
+@media (min-width: 992px) and (max-width: 1220px)
+  .About
+    &__carouselSlide
+      img
+        height: 70vh
+				object-fit: cover
+        width: 100%
+    &__header
+      padding-top: 0
+      .container
+        .about-us-row
+          padding: 0 4vw
+
+@media (min-width: 768px) and (max-width: 991px)
+  .About
+    &__carouselSlide
+      img
+        height: 50vh
+				object-fit: cover
+    &__header
+      padding-top: 0
+    .container
+      .row
+        padding: 2vh 2vw
+
+@media (min-width: 448px) and (max-width: 767px)
+  .About
+    &__carouselSlide
+      img
+        height: 40vh
+				object-fit: cover
+    & .poster
+      object-position: 55% 50%
+    &__header
+      padding-top: 2vh
+    .container
+      .row
+        padding: 0 4vw
+      .about-us-row
+        display: inline-block
+
+@media (max-width: 448px)
+  .About
+    &__carouselSlide, .VueCarousel-pagination
+      display: none
+    &__header
+      padding-top: 0
+    .container
+      .row
+        padding: 0 4vw
+      .about-us-row
+        display: inline-block
+      .col-offer
+        .offerCaptionText
+          width: 300px
+          height: 300px
