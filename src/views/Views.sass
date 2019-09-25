@@ -72,7 +72,7 @@
       p
         margin-bottom: 3rem
     &Photos
-      padding-bottom: 5vh
+      padding: 0 2vw 5vh
     &Photo
       display: flex
       align-items: center
@@ -86,7 +86,7 @@
         margin-bottom: 2em
       &Description
         width: 100%
-        margin-left: 5em
+        margin-left: 5%
         margin-top: -5em
         text-align: left
         ul
@@ -182,10 +182,52 @@
     color: $color-turkois
     opacity: 1
 
+@media (min-width: 768px) and (max-width: 1220px)
+  .Views
+    margin-top: 145px
+    &__galleryPhoto
+      &Description
+        .name
+          max-width: 90%
+
 @media (min-width: 421px) and (max-width: 767px)
   .Views
     margin-top: 95px
+    &__galleryPhoto
+      display: flex
+      flex-direction: column
+      justify-content: center
+      padding-bottom: 5vh
+      img
+        max-width: 90%
+      &Description
+        margin: 0
+        text-align: center
+        max-width: 90%
+        ul
+          padding: 0
+    &__galleryTooltip
+      width: 100%
+    &__contactBox
+      max-width: 90%
 
 @media (max-width: 420px)
   .Views
     margin-top: 80px
+    &__galleryPhoto
+      display: flex
+      flex-direction: column
+      justify-content: center
+      padding-bottom: 5vh
+      img
+        max-width: 90%
+      &Description
+        margin: 0
+        text-align: center
+        max-width: 90%
+        ul
+          padding: 0
+    &__galleryTooltip
+      width: 100%
+    &__contactBox
+      max-width: 90%
