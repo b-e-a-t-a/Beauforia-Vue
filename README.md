@@ -1,5 +1,7 @@
 # beauforia
 
+Project published at: https://b-e-a-t-a.github.io/Beauforia-Vue/.
+
 ## Project setup
 ```
 npm install
